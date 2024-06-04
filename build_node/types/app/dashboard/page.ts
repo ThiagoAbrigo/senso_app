@@ -1,8 +1,8 @@
-// File: /home/santiago/senso_app/app/page.js
-import * as entry from '../../../app/page.js'
+// File: /home/santiago/senso_app/app/dashboard/page.jsx
+import * as entry from '../../../../app/dashboard/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../app/page.js')
+type TEntry = typeof import('../../../../app/dashboard/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{

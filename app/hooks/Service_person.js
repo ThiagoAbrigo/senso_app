@@ -1,14 +1,12 @@
+import Cookies from 'js-cookie';
 import {GET} from './Connection';
 
-export async function listPerson () {
+export async function listPerson (token) {
     let data = null
     try {
-        data = await GET('person');
+        data = await GET('person', token);
     } catch (error) {
-        // console.log(error.response.data);
         return error.response.data
     }
     return data.data;
-    //Errors
-    
 }
