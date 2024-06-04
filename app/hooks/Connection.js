@@ -5,13 +5,14 @@ import axios from 'axios';
 export const GET = async (resource, token="NONE") => {
     let headers = {
         headers: {
-            "Accept": "application/json"
+            "Accept": "application/json",
+            "Content-type": "application/json"
         }
     }
     if (token != 'NONE') {
         let headers = {
             headers:{
-                "Accept": "application.json",
+                "Accept": "application/json",
                 "X-Access-Token": token
             }
         }

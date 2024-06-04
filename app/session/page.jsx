@@ -5,12 +5,16 @@ import './login.css';
 
 import * as Yup from 'yup';
 
+import Cookies from 'js-cookie';
 import { login } from '../hooks/Service_authenticate';
 import swal from 'sweetalert';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import {yupResolver} from '@hookform/resolvers/yup';
 
 export default function Session() {
+  const router = useRouter();
   const validationShema = Yup.object().shape({
     email: Yup.string().trim().required('Ingrese su correo'),
     password: Yup.string().trim().required('Ingrese clave')
@@ -19,13 +23,36 @@ export default function Session() {
   //metodo para que los nombres se guarden en mayuscula
   
   const formOptions = {resolver: yupResolver(validationShema)}
-  const {register, handleSubmit, formState} = useForm(formOptions);
+  const {register, handleSubmit, formState} = useForm(formOptions)
   let {errors} = formState;
+  useEffect(() => {
+    const token = Cookies.get('token');
+    if (!token) {
+      // Si no hay un token válido, redirigir al usuario a la página de inicio de sesión
+      router.push('/session');
+    } else {
+      // Si hay un token válido, redirigir al usuario a la página del dashboard
+      router.push('/dashboard');
+    }
+  }, []);
   const sendInfo = (data) => {
-    console.log(data);
     login(data).then((info) => {
       if (info.code == '200') {
         console.log(info);
+        Cookies.set('token', info.datos.token)
+        Cookies.set('user', info.datos.user)
+        swal({
+          title:"SUCCESS",
+          text: "Welcome" + info.datos.user,
+          icon: "success",
+          button: "Accept",
+          timer: 4000,
+          closeOnEsc: true
+        })
+        const token = Cookies.get('token');
+        if (token) {
+          router.push('/dashboard');
+        }
       }else{
         swal({
           title:"ERROR",
