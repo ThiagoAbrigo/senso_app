@@ -12,17 +12,34 @@ export default function Menu() {
         <div>
             <header>
                 <div className="w-full h-20 navbar-dark bg-dark sticky top-0">
-                    {/* <div className="container mx-auto px-4 h-full">
-                        <div className="flex justify-between items-center h-full"> */}
+                    <div className="container mx-auto px-4 h-full">
+                        <div className="flex justify-between items-center h-full">
                             <ul className="hidden md:flex gap-x-6 text-white">
                                 <li>
-                                <Link href="/session" onClick={(e) => close(e)}>
-                                    <p>Close</p>
-                                </Link>
+                                    <Link href="/about">
+                                        <p>About Us</p>
+                                    </Link>
                                 </li>
+                                <li>
+                                    <Link href="/services">
+                                        <p>Services</p>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/contacts">
+                                        <p>Contacts</p>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link href="/session" onClick={(e) => close(e)}>
+                                        <p>Close</p>
+                                    </Link>
+                                </li>
+
                             </ul>
-                        {/* </div>
-                    </div> */}
+                        </div>
+                    </div>
                 </div>
             </header>
         </div>
