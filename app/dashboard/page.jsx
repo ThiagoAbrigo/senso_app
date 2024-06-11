@@ -11,7 +11,7 @@ export default function Dashboard() {
   // })
   return (
     <>
-      <main className="form-signin text-center mt-5">
+      <main className="text-center mt-5">
         <Menu></Menu>
         <h1>WELCOME</h1>
       </main>

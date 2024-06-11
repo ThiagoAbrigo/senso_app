@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/dashboard/page": [
+    "/person/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/page.js"
+      "static/chunks/app/person/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -11,11 +11,20 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/session/page": [
+    "/person/[external]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/session/page.css",
-      "static/chunks/app/session/page.js"
+      "static/chunks/app/person/[external]/page.js"
+    ],
+    "/person/new/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/person/new/page.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ]
   }
 }

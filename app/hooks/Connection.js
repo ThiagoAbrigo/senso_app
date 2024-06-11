@@ -10,7 +10,7 @@ export const GET = async (resource, token="NONE") => {
         }
     }
     if (token != 'NONE') {
-        let headers = {
+        headers = {
             headers:{
                 "Accept": "application/json",
                 "X-Access-Token": token
@@ -25,13 +25,15 @@ export const POST = async (resource, data, token="NONE") => {
         "Accept": "application/json",
         "Content-type": "application/json"
     }
-    if (token != "NONE") {
+    if (token !== "NONE") {
         headers = {
             headers: {
                 "Accept": "application/json",
-                "X-Access-Token": token,
+                "X-Access-Token": token
             }
         }
     }
-    return await axios.post(URL + resource, data, headers)
-}
+    
+        return await axios.post(URL + resource, data, headers );
+        // return response.data;
+};
